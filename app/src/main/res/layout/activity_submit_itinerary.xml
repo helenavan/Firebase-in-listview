@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.helenacorp.quete_firebase.SubmitItineraryActivity">
+
+    <EditText
+        android:id="@+id/departEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Départ"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/destinationEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/dest"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departEdit" />
+
+    <EditText
+        android:id="@+id/priceEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Prix"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destinationEdit" />
+
+    <EditText
+        android:id="@+id/dateEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceEdit" />
+
+    <Button
+        android:id="@+id/btnSubmitItinerary"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_publier"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateEdit" />
+
+</android.support.constraint.ConstraintLayout>
