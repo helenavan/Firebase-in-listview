@@ -11,12 +11,11 @@ import com.google.firebase.database.Query;
  */
 
 public class ItineraryAdapter extends FirebaseListAdapter<ItineraryModel> {
-    private TextView hour, depart, prix, date;
+    private TextView depart, prix, date;
 
     public ItineraryAdapter(Query mRef, Activity activity, int mLayout) {
         super(mRef, ItineraryModel.class, mLayout, activity);
     }
-
 
     @Override
     protected void populateView(View view, ItineraryModel model) {

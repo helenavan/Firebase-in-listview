@@ -17,8 +17,7 @@ public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_search_itinerary_results_list);
 
-
-        mDatabase = FirebaseDatabase.getInstance().getReference("quetefirebase/itineraries");
+        mDatabase = FirebaseDatabase.getInstance().getReference("departs");
         mItineraryAdapter = new ItineraryAdapter(mDatabase, this, R.layout.item_itinerary);
         listView = (ListView) this.findViewById(R.id.listviewEdit);
         listView.setAdapter(mItineraryAdapter);

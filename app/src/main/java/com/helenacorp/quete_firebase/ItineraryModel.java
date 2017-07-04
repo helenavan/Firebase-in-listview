@@ -1,7 +1,5 @@
 package com.helenacorp.quete_firebase;
 
-import java.util.Date;
-
 /**
  * Created by helena on 03/07/2017.
  */
@@ -11,16 +9,16 @@ public class ItineraryModel {
     private int userID;
     private String driverLastName;
     private String driverFirstName;
-    private Date departureDate;
+    private String departureDate;
     private int price;
     private String departure;
     private String destination;
 
-    public ItineraryModel(int userID, String driverLastName, String driverFirstName,
-                          Date departureDate, int price, String departure, String destination) {
+    public ItineraryModel(int userID,
+                          String departureDate, int price, String departure, String destination) {
         this.userID = userID;
-        this.driverLastName = driverLastName;
-        this.driverFirstName = driverFirstName;
+        this.driverLastName = "beleu";
+        this.driverFirstName = "azur";
         this.departureDate = departureDate;
         this.price = price;
         this.departure = departure;
@@ -51,11 +49,11 @@ public class ItineraryModel {
         this.driverFirstName = driverFirstName;
     }
 
-    public Date getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 

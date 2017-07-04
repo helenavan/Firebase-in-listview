@@ -82,18 +82,18 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 // One of the mModels changed. Replace it in our list and name mapping
-                String key = dataSnapshot.getKey();
+             /*   String key = dataSnapshot.getKey();
                 ItineraryModel newModel = dataSnapshot.getValue(FirebaseListAdapter.this.mModelClass);
                 int index = mKeys.indexOf(key);
 
                 mModels.set(index, newModel);
 
-                notifyDataSetChanged();
+                notifyDataSetChanged();*/
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+/*
                 // A model was removed from the list. Remove it from our list and the name mapping
                 String key = dataSnapshot.getKey();
                 int index = mKeys.indexOf(key);
@@ -101,12 +101,12 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
                 mKeys.remove(index);
                 mModels.remove(index);
 
-                notifyDataSetChanged();
+                notifyDataSetChanged();*/
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-
+/*
                 // A model changed position in the list. Update our list accordingly
                 String key = dataSnapshot.getKey();
                 ItineraryModel newModel = dataSnapshot.getValue(FirebaseListAdapter.this.mModelClass);
@@ -127,18 +127,13 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
                         mKeys.add(nextIndex, key);
                     }
                 }
-                notifyDataSetChanged();
+                notifyDataSetChanged();*/
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.e("FirebaseListAdapter", "Listen was cancelled, no more updates will occur");
             }
-
-           /* @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                Log.e("FirebaseListAdapter", "Listen was cancelled, no more updates will occur");
-            }*/
 
         });
     }

@@ -12,11 +12,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class SubmitItineraryActivity extends AppCompatActivity {
-    private EditText departureEdit, destinationEdit, dateEdit, priceEdit;
+    private EditText departureEdit, destinationEdit, departureDateT, priceEdit;
     private Button buttonEdit, buttonCall;
 
 
@@ -27,7 +24,7 @@ public class SubmitItineraryActivity extends AppCompatActivity {
 
         departureEdit = (EditText) findViewById(R.id.departEdit);
         destinationEdit = (EditText) findViewById(R.id.destinationEdit);
-        dateEdit = (EditText) findViewById(R.id.dateEdit);
+        departureDateT = (EditText) findViewById(R.id.dateEdit);
         priceEdit = (EditText) findViewById(R.id.priceEdit);
         buttonEdit = (Button) findViewById(R.id.btnSubmitItinerary);
         buttonCall = (Button) findViewById(R.id.btnSCall);
@@ -63,11 +60,11 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         DatabaseReference ref = database.getReference("itineraries");
         //DatabaseReference myRef = ref.child("itineraries");
 
-        Map<String, ItineraryModel> users = new HashMap<String, ItineraryModel>();
-        users.put("departs".toString(), new ItineraryModel(0, null, null, null, priceEdit.getInputType(), departureEdit.getText().toString(), destinationEdit.getText().toString()));
+        //Map<String, ItineraryModel> users = new HashMap<String, ItineraryModel>();
+        ItineraryModel itModel = new ItineraryModel(0, departureDateT.getText().toString(), priceEdit.getInputType(), departureEdit.getText().toString(), destinationEdit.getText().toString());
        /* myRef.setValue(destinationEdit.getText().toString());
         myRef.setValue(dateEdit.getText().toString());
         myRef.setValue(priceEdit.getText().toString());*/
-        ref.push().setValue(users);
+        ref.push().setValue(itModel);
     }
 }
