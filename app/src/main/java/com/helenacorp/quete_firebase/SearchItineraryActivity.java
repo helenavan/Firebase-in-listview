@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SearchItineraryActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE1 = "key1";
     public static final String EXTRA_MESSAGE2 = "key2";
-    private EditText departure, destination;
+    private EditText editTextDeparture, editTextdestination, editTextPrice, editTextDate;
     private Button button;
 
     @Override
@@ -21,20 +24,23 @@ public class SearchItineraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_itinerary2);
 
-        departure = (EditText) findViewById(R.id.editTextSearchDeparture);
-        destination = (EditText) findViewById(R.id.editTextSearchDestination);
+        editTextDeparture = (EditText) findViewById(R.id.editTextSearchDeparture);
+        editTextdestination = (EditText) findViewById(R.id.editTextSearchDestination);
         button = (Button) findViewById(R.id.button);
         button.setBackgroundColor(Color.GRAY);
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (departure.getText().length() == 0 ||
-                        destination.getText().length() == 0) {
+                if (editTextDeparture.getText().length() == 0 ||
+                        editTextdestination.getText().length() == 0) {
                     Context context = getApplicationContext();
                     CharSequence text = "Veuillez remplir le formulaire complètement,\nsinon grrr";
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 } else {
+                    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference ref = database.getReference("itineraries");
                     sendMessage(button);
                 }
             }
@@ -43,8 +49,9 @@ public class SearchItineraryActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, ViewSearchItineraryResultsListActivity.class);
-        String message1 = departure.getText().toString();
-        String message2 = destination.getText().toString();
+        String message1 = editTextDeparture.getText().toString();
+        String message2 = editTextdestination.getText().toString();
+        int mPrix = Integer.parseInt(editTextPrice.getText().toString());
         intent.putExtra(EXTRA_MESSAGE1, message1);
         intent.putExtra(EXTRA_MESSAGE2, message2);
         startActivity(intent);

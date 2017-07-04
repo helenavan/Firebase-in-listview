@@ -1,6 +1,7 @@
 package com.helenacorp.quete_firebase;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 public class SubmitItineraryActivity extends AppCompatActivity {
     private EditText departureEdit, destinationEdit, dateEdit, priceEdit;
-    private Button buttonEdit;
+    private Button buttonEdit, buttonCall;
 
 
     @Override
@@ -29,6 +30,7 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         dateEdit = (EditText) findViewById(R.id.dateEdit);
         priceEdit = (EditText) findViewById(R.id.priceEdit);
         buttonEdit = (Button) findViewById(R.id.btnSubmitItinerary);
+        buttonCall = (Button) findViewById(R.id.btnSCall);
 
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -44,20 +46,28 @@ public class SubmitItineraryActivity extends AppCompatActivity {
                 }
             }
         });
+        buttonCall.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(SubmitItineraryActivity.this, ViewSearchItineraryResultsListActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
 
     }
 
     public void sendMessage(View view) {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("test");
-        DatabaseReference myRef = ref.child("test");
+        DatabaseReference ref = database.getReference("itineraries");
+        //DatabaseReference myRef = ref.child("itineraries");
 
         Map<String, ItineraryModel> users = new HashMap<String, ItineraryModel>();
-        users.put(departureEdit.getText().toString(), new ItineraryModel(0, null, null, null, priceEdit.getInputType(), departureEdit.getText().toString(), destinationEdit.getText().toString()));
+        users.put("departs".toString(), new ItineraryModel(0, null, null, null, priceEdit.getInputType(), departureEdit.getText().toString(), destinationEdit.getText().toString()));
        /* myRef.setValue(destinationEdit.getText().toString());
         myRef.setValue(dateEdit.getText().toString());
         myRef.setValue(priceEdit.getText().toString());*/
-        myRef.setValue(users);
+        ref.setValue(users);
     }
 }

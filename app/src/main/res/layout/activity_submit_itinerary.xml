@@ -42,14 +42,33 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceEdit" />
 
+    <EditText
+        android:id="@+id/hourEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="heure:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateEdit" />
+
     <Button
         android:id="@+id/btnSubmitItinerary"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:text="@string/btn_publier"
+        app:layout_constraintBottom_toTopOf="@+id/btnSCall"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hourEdit" />
+
+    <Button
+        android:id="@+id/btnSCall"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="call"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSubmitItinerary" />
 
 </android.support.constraint.ConstraintLayout>
