@@ -68,6 +68,6 @@ public class SubmitItineraryActivity extends AppCompatActivity {
        /* myRef.setValue(destinationEdit.getText().toString());
         myRef.setValue(dateEdit.getText().toString());
         myRef.setValue(priceEdit.getText().toString());*/
-        ref.setValue(users);
+        ref.push().setValue(users);
     }
 }
