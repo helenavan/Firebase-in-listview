@@ -1,7 +1,6 @@
 package com.helenacorp.quete_firebase;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SubmitItineraryActivity extends AppCompatActivity {
     private EditText departureEdit, destinationEdit, departureDateT, priceEdit;
-    private Button buttonEdit, buttonCall;
+    private Button buttonEdit;
 
 
     @Override
@@ -27,7 +26,7 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         departureDateT = (EditText) findViewById(R.id.dateEdit);
         priceEdit = (EditText) findViewById(R.id.priceEdit);
         buttonEdit = (Button) findViewById(R.id.btnSubmitItinerary);
-        buttonCall = (Button) findViewById(R.id.btnSCall);
+
 
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -43,14 +42,6 @@ public class SubmitItineraryActivity extends AppCompatActivity {
                 }
             }
         });
-        buttonCall.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(SubmitItineraryActivity.this, ViewSearchItineraryResultsListActivity.class);
-                startActivity(intent);
-            }
-
-        });
-
 
     }
 

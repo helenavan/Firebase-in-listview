@@ -18,4 +18,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnSCall"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_main" />
+
 </android.support.constraint.ConstraintLayout>

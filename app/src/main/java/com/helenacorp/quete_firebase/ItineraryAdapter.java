@@ -25,11 +25,6 @@ public class ItineraryAdapter extends FirebaseListAdapter<ItineraryModel> {
         prix = (TextView) view.findViewById(R.id.price);
         prix.setText(Integer.toString(model.getPrice()));
 
-        //date
-        //Date dateDeparture = model.getDepartureDate();
-        //date = (TextView) view.findViewById(R.id.time);
-        //date.setText(model.getDepartureDate().toString());
-        //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
     }
 
 }
