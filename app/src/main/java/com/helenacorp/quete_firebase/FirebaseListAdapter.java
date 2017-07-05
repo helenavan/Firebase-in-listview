@@ -106,7 +106,7 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-/*
+
                 // A model changed position in the list. Update our list accordingly
                 String key = dataSnapshot.getKey();
                 ItineraryModel newModel = dataSnapshot.getValue(FirebaseListAdapter.this.mModelClass);
@@ -127,7 +127,7 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
                         mKeys.add(nextIndex, key);
                     }
                 }
-                notifyDataSetChanged();*/
+                notifyDataSetChanged();
             }
 
             @Override

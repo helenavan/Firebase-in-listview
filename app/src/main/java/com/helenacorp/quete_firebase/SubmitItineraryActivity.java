@@ -58,13 +58,8 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("itineraries");
-        //DatabaseReference myRef = ref.child("itineraries");
-
-        //Map<String, ItineraryModel> users = new HashMap<String, ItineraryModel>();
         ItineraryModel itModel = new ItineraryModel(0, departureDateT.getText().toString(), priceEdit.getInputType(), departureEdit.getText().toString(), destinationEdit.getText().toString());
-       /* myRef.setValue(destinationEdit.getText().toString());
-        myRef.setValue(dateEdit.getText().toString());
-        myRef.setValue(priceEdit.getText().toString());*/
         ref.push().setValue(itModel);
+        finish();
     }
 }
