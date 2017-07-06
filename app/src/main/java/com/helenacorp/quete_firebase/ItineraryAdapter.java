@@ -11,7 +11,7 @@ import com.google.firebase.database.Query;
  */
 
 public class ItineraryAdapter extends FirebaseListAdapter<ItineraryModel> {
-    private TextView depart, prix, date;
+    private TextView txtdepart, txtprice, txtdestination;
 
     public ItineraryAdapter(Query mRef, Activity activity, int mLayout) {
         super(mRef, ItineraryModel.class, mLayout, activity);
@@ -20,10 +20,12 @@ public class ItineraryAdapter extends FirebaseListAdapter<ItineraryModel> {
     @Override
     protected void populateView(View view, ItineraryModel model) {
 
-        depart = (TextView) view.findViewById(R.id.datext);
-        depart.setText(model.getDeparture().toString());
-        prix = (TextView) view.findViewById(R.id.price);
-        prix.setText(Integer.toString(model.getPrice()));
+        txtdepart = (TextView) view.findViewById(R.id.departureList);
+        txtdepart.setText(model.getDeparture().toString());
+        txtdestination = (TextView) view.findViewById(R.id.destinationList);
+        txtdestination.setText(model.getDestination().toString());
+        txtprice = (TextView) view.findViewById(R.id.priceList);
+        txtprice.setText(String.valueOf(model.getPrice()));
 
     }
 

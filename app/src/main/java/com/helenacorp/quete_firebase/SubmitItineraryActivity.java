@@ -22,7 +22,7 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_submit_itinerary);
 
         departureEdit = (EditText) findViewById(R.id.departEdit);
-        destinationEdit = (EditText) findViewById(R.id.destinationEdit);
+        destinationEdit = (EditText) findViewById(R.id.destinationList);
         departureDateT = (EditText) findViewById(R.id.dateEdit);
         priceEdit = (EditText) findViewById(R.id.priceEdit);
         buttonEdit = (Button) findViewById(R.id.btnSubmitItinerary);
@@ -49,7 +49,8 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("itineraries");
-        ItineraryModel itModel = new ItineraryModel(0, departureDateT.getText().toString(), priceEdit.getInputType(), departureEdit.getText().toString(), destinationEdit.getText().toString());
+        //parseInt for int to String in edittext
+        ItineraryModel itModel = new ItineraryModel(0, departureDateT.getText().toString(), Integer.parseInt(priceEdit.getText().toString()), departureEdit.getText().toString(), destinationEdit.getText().toString());
         ref.push().setValue(itModel);
         finish();
     }

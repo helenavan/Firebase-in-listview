@@ -10,4 +10,5 @@
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
     <string name="btn_publier">Publier</string>
+    <string name="callbtn">call list</string>
 </resources>

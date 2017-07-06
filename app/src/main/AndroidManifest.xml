@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewSearchItineraryResultsListActivity" />
-        <activity android:name=".SearchItineraryActivity" />
         <activity android:name=".SubmitItineraryActivity"></activity>
     </application>
 
