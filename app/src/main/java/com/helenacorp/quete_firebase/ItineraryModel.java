@@ -5,7 +5,6 @@ package com.helenacorp.quete_firebase;
  */
 
 public class ItineraryModel {
-
     private int userID;
     private String driverLastName;
     private String driverFirstName;
@@ -13,6 +12,11 @@ public class ItineraryModel {
     private int price;
     private String departure;
     private String destination;
+
+    //ajouter un constructeur sans argument!!!!!!
+    ItineraryModel() {
+
+    }
 
     public ItineraryModel(int userID,
                           String departureDate, int price, String departure, String destination) {
